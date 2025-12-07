@@ -1,0 +1,28 @@
+<!-- meal-card.component.html -->
+<div class="meal-card" (click)="handleClick()">
+  <div class="meal-card-image-container">
+    <img 
+      [src]="meal().strMealThumb" 
+      [alt]="meal().strMeal"
+      class="meal-card-image"
+    />
+  </div>
+  
+  <div class="meal-card-content">
+    <h3 class="meal-card-title">{{ meal().strMeal }}</h3>
+    
+    <div class="meal-card-info">
+      @if (meal().strCategory) {
+        <span class="meal-card-badge category">
+          {{ meal().strCategory }}
+        </span>
+      }
+      
+      @if (meal().strArea) {
+        <span class="meal-card-badge area">
+          🌍 {{ meal().strArea }}
+        </span>
+      }
+    </div>
+  </div>
+</div>

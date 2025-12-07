@@ -1,0 +1,53 @@
+<div class="categories-container">
+  <div class="categories-header">
+    <button (click)="handleBack()" class="back-button">
+      ← Volver al Inicio
+    </button>
+    <h2 class="categories-title">Explorar por Categorías</h2>
+  </div>
+
+  @if (isLoading()) {
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Cargando categorías...</p>
+    </div>
+  } @else if (errorMessage()) {
+    <div class="error-message">
+      {{ errorMessage() }}
+      <button (click)="loadCategories()" class="retry-button">
+        Reintentar
+      </button>
+    </div>
+  } @else {
+    <div class="categories-grid">
+      @for (category of categories(); track category.idCategory) {
+        <div 
+          class="category-card"
+          (click)="selectCategory(category.strCategory)"
+          [class.loading]="isLoadingMeals() && selectedCategory() === category.strCategory"
+        >
+          <div class="category-image-container">
+            <img 
+              [src]="category.strCategoryThumb" 
+              [alt]="category.strCategory"
+              class="category-image"
+            />
+          </div>
+          
+          <div class="category-content">
+            <h3 class="category-name">{{ category.strCategory }}</h3>
+            <p class="category-description">
+              {{ category.strCategoryDescription.substring(0, 100) }}...
+            </p>
+            
+            @if (isLoadingMeals() && selectedCategory() === category.strCategory) {
+              <span class="category-loading">Cargando...</span>
+            } @else {
+              <span class="category-link">Ver platillos →</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

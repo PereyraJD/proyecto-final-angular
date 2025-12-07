@@ -1,0 +1,55 @@
+<div class="home-container">
+  <div class="hero-section">
+    <h1 class="hero-title">Bienvenido a Digital Menu</h1>
+    <p class="hero-subtitle">Descubre deliciosas recetas de todo el mundo</p>
+  </div>
+
+  @if (!activeSearch) {
+    <div class="search-options">
+      <div class="search-card" (click)="showSearch('name')">
+        <div class="card-icon">🔍</div>
+        <h3 class="card-title">Buscar por Nombre</h3>
+        <p class="card-description">Encuentra tu platillo favorito</p>
+      </div>
+
+      <div class="search-card" (click)="showSearch('letter')">
+        <div class="card-icon">🔤</div>
+        <h3 class="card-title">Buscar por Letra</h3>
+        <p class="card-description">Explora platillos alfabéticamente</p>
+      </div>
+
+      <div class="search-card" (click)="showSearch('random')">
+        <div class="card-icon">🎲</div>
+        <h3 class="card-title">Platillo Aleatorio</h3>
+        <p class="card-description">Sorpréndete con algo nuevo</p>
+      </div>
+    </div>
+  }
+
+  @if (activeSearch === 'name') {
+    <div class="search-form-container">
+      <button (click)="closeSearch()" class="close-button">✕ Cerrar</button>
+      <app-search-by-name
+        (onResults)="handleSearchResults($event, 'name')"
+      ></app-search-by-name>
+    </div>
+  }
+
+  @if (activeSearch === 'letter') {
+    <div class="search-form-container">
+      <button (click)="closeSearch()" class="close-button">✕ Cerrar</button>
+      <app-search-by-letter
+        (onResults)="handleSearchResults($event, 'letter')"
+      ></app-search-by-letter>
+    </div>
+  }
+
+  @if (activeSearch === 'random') {
+    <div class="search-form-container">
+      <button (click)="closeSearch()" class="close-button">✕ Cerrar</button>
+      <app-random-meal
+        (onResults)="handleSearchResults($event, 'random')"
+      ></app-random-meal>
+    </div>
+  }
+</div>

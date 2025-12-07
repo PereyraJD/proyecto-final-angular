@@ -1,0 +1,372 @@
+:root {
+  --primary: #f48c25;
+  --primary-light: rgba(244, 140, 37, 0.2);
+  --background-light: #f8f7f5;
+  --background-dark: #221910;
+  --content-light: #181411;
+  --content-dark: #f8f7f5;
+  --subtle-light: #f5f2f0;
+  --subtle-dark: #2a221a;
+  --border-radius: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+}
+
+/* Contenedor principal */
+.detail-container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--background-light);
+  color: var(--content-light);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Estados de carga y error */
+.loading-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--subtle-light);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Contenido principal */
+.detail-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem;
+}
+
+/* Botón de volver */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 84px;
+  max-width: 480px;
+  height: 2.5rem;
+  padding: 0 1rem;
+  background-color: transparent;
+  color: var(--content-light);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  border: none;
+  border-radius: var(--border-radius-xl);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: var(--subtle-light);
+}
+
+/* Hero section */
+.detail-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.detail-image {
+  width: 100%;
+  height: auto;
+  min-height: 320px;
+  object-fit: cover;
+  border-radius: var(--border-radius-xl);
+  background-color: var(--subtle-light);
+}
+
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.033em;
+  margin: 0;
+}
+
+.detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  overflow-x: auto;
+}
+
+.detail-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 2rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Badge de categoría - fondo naranja */
+.detail-badge.category {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+/* Badge de área/país - fondo gris */
+.detail-badge.area {
+  background-color: var(--subtle-light);
+  color: var(--content-light);
+}
+
+/* Badge de tags - fondo gris */
+.detail-badge.tag {
+  background-color: var(--subtle-light);
+  color: var(--content-light);
+}
+
+/* Secciones de detalle */
+.detail-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--content-light);
+}
+
+/* Lista de ingredientes */
+.ingredients-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--subtle-light);
+}
+
+.ingredient-name {
+  font-weight: 500;
+  color: var(--content-light);
+}
+
+.ingredient-measure {
+  color: rgba(24, 20, 17, 0.7);
+  font-size: 0.875rem;
+}
+
+/* Instrucciones */
+.instructions-content {
+  color: var(--content-light);
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Video */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  background-color: var(--subtle-light);
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive design */
+@media (min-width: 640px) {
+  .detail-content {
+    padding: 1.25rem 2rem;
+  }
+
+  .detail-image {
+    min-height: 480px;
+  }
+
+  .ingredients-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .detail-content {
+    padding: 1.25rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .detail-content {
+    padding: 1.25rem 5rem;
+  }
+
+  .detail-hero {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .detail-image {
+    min-height: 100%;
+  }
+
+  .detail-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .detail-content {
+    padding: 1.25rem 10rem;
+  }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .detail-container {
+    background-color: var(--background-dark);
+    color: var(--content-dark);
+  }
+
+  .back-button {
+    color: var(--content-dark);
+  }
+
+  .back-button:hover {
+    background-color: var(--subtle-dark);
+  }
+
+  .detail-image {
+    background-color: var(--subtle-dark);
+  }
+
+  .detail-badge.category {
+    background-color: rgba(244, 140, 37, 0.2);
+    color: var(--primary);
+  }
+
+  .detail-badge.area {
+    background-color: var(--subtle-dark);
+    color: var(--content-dark);
+  }
+
+  .detail-badge.tag {
+    background-color: var(--subtle-dark);
+    color: var(--content-dark);
+  }
+
+  .section-title,
+  .ingredient-name,
+  .instructions-content {
+    color: var(--content-dark);
+  }
+
+  .ingredient-item {
+    border-bottom-color: var(--subtle-dark);
+  }
+
+  .ingredient-measure {
+    color: rgba(248, 247, 245, 0.7);
+  }
+
+  .video-container {
+    background-color: var(--subtle-dark);
+  }
+}
+
+/* Clase para forzar modo oscuro en Angular */
+:host-context(.dark) .detail-container {
+  background-color: var(--background-dark);
+  color: var(--content-dark);
+}
+
+:host-context(.dark) .back-button {
+  color: var(--content-dark);
+}
+
+:host-context(.dark) .back-button:hover {
+  background-color: var(--subtle-dark);
+}
+
+:host-context(.dark) .detail-image {
+  background-color: var(--subtle-dark);
+}
+
+:host-context(.dark) .detail-badge.category {
+  background-color: rgba(244, 140, 37, 0.2);
+  color: var(--primary);
+}
+
+:host-context(.dark) .detail-badge.area {
+  background-color: var(--subtle-dark);
+  color: var(--content-dark);
+}
+
+:host-context(.dark) .detail-badge.tag {
+  background-color: var(--subtle-dark);
+  color: var(--content-dark);
+}
+
+:host-context(.dark) .section-title,
+:host-context(.dark) .ingredient-name,
+:host-context(.dark) .instructions-content {
+  color: var(--content-dark);
+}
+
+:host-context(.dark) .ingredient-item {
+  border-bottom-color: var(--subtle-dark);
+}
+
+:host-context(.dark) .ingredient-measure {
+  color: rgba(248, 247, 245, 0.7);
+}
+
+:host-context(.dark) .video-container {
+  background-color: var(--subtle-dark);
+}

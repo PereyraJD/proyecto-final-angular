@@ -1,0 +1,179 @@
+/* Variables de diseño */
+:root {
+  --primary: #f48c25;
+  --primary-light: rgba(244, 140, 37, 0.2);
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #1a1a1a;
+  --card-hover-dark: #262626;
+  --content-light: #181411;
+  --content-dark: #ffffff;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-800: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+}
+
+/* Contenedor de la card */
+.meal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: var(--card-bg-light);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+}
+
+.meal-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Contenedor de imagen */
+.meal-card-image-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.meal-card-image {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+  display: block;
+}
+
+.meal-card:hover .meal-card-image {
+  transform: scale(1.05);
+}
+
+/* Contenido de la card */
+.meal-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.meal-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--content-light);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Info badges */
+.meal-card-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.meal-card-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 1.75rem;
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.meal-card-badge.category {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.meal-card-badge.area {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--content-light);
+}
+
+/* Botón de la card - OCULTO */
+.meal-card-button {
+  display: none;
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .meal-card {
+    background-color: var(--card-bg-dark);
+  }
+
+  .meal-card:hover {
+    background-color: var(--card-hover-dark);
+  }
+
+  .meal-card-image-container {
+    background-color: #2a2a2a;
+  }
+
+  .meal-card-title {
+    color: var(--content-dark);
+  }
+
+  .meal-card-badge.category {
+    background-color: rgba(244, 140, 37, 0.2);
+    color: var(--primary);
+  }
+
+  .meal-card-badge.area {
+    background-color: var(--neutral-800);
+    color: var(--neutral-400);
+  }
+}
+
+/* Clase para forzar modo oscuro en Angular */
+:host-context(.dark) .meal-card {
+  background-color: var(--card-bg-dark);
+}
+
+:host-context(.dark) .meal-card:hover {
+  background-color: var(--card-hover-dark);
+}
+
+:host-context(.dark) .meal-card-image-container {
+  background-color: #2a2a2a;
+}
+
+:host-context(.dark) .meal-card-title {
+  color: var(--content-dark);
+}
+
+:host-context(.dark) .meal-card-badge.category {
+  background-color: rgba(244, 140, 37, 0.2);
+  color: var(--primary);
+}
+
+:host-context(.dark) .meal-card-badge.area {
+  background-color: var(--neutral-800);
+  color: var(--neutral-400);
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .meal-card-image {
+    height: 14rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .meal-card-image {
+    height: 12rem;
+  }
+}

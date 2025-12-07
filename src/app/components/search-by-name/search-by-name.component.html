@@ -1,0 +1,32 @@
+<div class="search-form">
+  <h2 class="form-title">Buscar Platillo por Nombre</h2>
+  
+  <div class="form-group">
+    <input
+      type="text"
+      [value]="searchTerm()"
+      (input)="updateSearchTerm($any($event.target).value)"
+      placeholder="Ej: Chicken, Pasta, Cake..."
+      class="form-input"
+      [disabled]="isLoading()"
+    />
+  </div>
+
+  @if (errorMessage()) {
+    <div class="error-message">
+      {{ errorMessage() }}
+    </div>
+  }
+
+  <button
+    (click)="search()"
+    [disabled]="isLoading() || !searchTerm().trim()"
+    class="submit-button"
+  >
+    @if (isLoading()) {
+      <span>Buscando...</span>
+    } @else {
+      <span>🔍 Buscar</span>
+    }
+  </button>
+</div>

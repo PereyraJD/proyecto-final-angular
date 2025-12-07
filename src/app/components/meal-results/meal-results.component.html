@@ -1,0 +1,25 @@
+<div class="results-container">
+  <div class="results-header">
+    <button (click)="handleBack()" class="back-button">
+      ← Volver
+    </button>
+    <h2 class="results-title">{{ getResultsTitle() }}</h2>
+  </div>
+
+  @if (meals().length === 0) {
+    <div class="no-results">
+      <div class="no-results-icon">🔍</div>
+      <h3>No se encontraron resultados</h3>
+      <p>Intenta con una búsqueda diferente</p>
+    </div>
+  } @else {
+    <div class="meals-grid">
+      @for (meal of meals(); track meal.idMeal) {
+        <app-meal-card
+          [meal]="meal"
+          (onClick)="handleMealClick($event)"
+        ></app-meal-card>
+      }
+    </div>
+  }
+</div>

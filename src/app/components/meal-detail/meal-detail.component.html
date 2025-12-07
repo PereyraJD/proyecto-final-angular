@@ -1,0 +1,93 @@
+<div class="detail-container">
+  @if (isLoading()) {
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Cargando detalles del platillo...</p>
+    </div>
+  } @else if (fullMeal()) {
+    <div class="detail-content">
+      <button (click)="handleBack()" class="back-button">
+        ← Volver a resultados
+      </button>
+
+      <div class="detail-hero">
+        <img 
+          [src]="fullMeal()!.strMealThumb" 
+          [alt]="fullMeal()!.strMeal"
+          class="detail-image"
+        />
+        
+        <div class="detail-header">
+          <h1 class="detail-title">{{ fullMeal()!.strMeal }}</h1>
+          
+          <div class="detail-badges">
+            @if (fullMeal()!.strCategory) {
+              <span class="detail-badge category">
+                🍽️ {{ fullMeal()!.strCategory }}
+              </span>
+            }
+            
+            @if (fullMeal()!.strArea) {
+              <span class="detail-badge area">
+                🌍 {{ fullMeal()!.strArea }}
+              </span>
+            }
+            
+            @if (fullMeal()!.strTags) {
+              @for (tag of fullMeal()!.strTags!.split(','); track tag) {
+                <span class="detail-badge tag">
+                  #{{ tag.trim() }}
+                </span>
+              }
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-sections">
+        <section class="detail-section">
+          <h2 class="section-title">📝 Ingredientes</h2>
+          <div class="ingredients-list">
+            @for (ingredient of fullMeal()!.ingredients; track ingredient.name) {
+              <div class="ingredient-item">
+                <span class="ingredient-name">{{ ingredient.name }}</span>
+                @if (ingredient.measure) {
+                  <span class="ingredient-measure">{{ ingredient.measure }}</span>
+                }
+              </div>
+            }
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2 class="section-title">👨‍🍳 Instrucciones</h2>
+          <div class="instructions-content">
+            {{ fullMeal()!.strInstructions }}
+          </div>
+        </section>
+
+        @if (fullMeal()!.strYoutube) {
+          <section class="detail-section">
+            <h2 class="section-title">🎥 Video Tutorial</h2>
+            <div class="video-container">
+              <iframe
+                [src]="getYoutubeEmbedUrl(fullMeal()!.strYoutube)"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="video-iframe"
+              ></iframe>
+            </div>
+          </section>
+        }
+      </div>
+    </div>
+  } @else {
+    <div class="error-container">
+      <p>No se pudo cargar el platillo</p>
+      <button (click)="handleBack()" class="back-button">
+        ← Volver
+      </button>
+    </div>
+  }
+</div>

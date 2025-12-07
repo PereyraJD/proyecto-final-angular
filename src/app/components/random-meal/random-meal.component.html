@@ -1,0 +1,29 @@
+<div class="search-form">
+  <h2 class="form-title">Platillo Aleatorio</h2>
+  <p class="form-description">Descubre una receta sorpresa</p>
+  
+  <div class="random-section">
+    <div class="random-icon">🎲</div>
+    <p class="random-text">
+      ¿No sabes qué cocinar hoy? Deja que la suerte decida por ti
+    </p>
+  </div>
+
+  @if (errorMessage()) {
+    <div class="error-message">
+      {{ errorMessage() }}
+    </div>
+  }
+
+  <button
+    (click)="getRandomMeal()"
+    [disabled]="isLoading()"
+    class="submit-button random-button"
+  >
+    @if (isLoading()) {
+      <span>🔄 Generando...</span>
+    } @else {
+      <span>✨ Sorpréndeme</span>
+    }
+  </button>
+</div>

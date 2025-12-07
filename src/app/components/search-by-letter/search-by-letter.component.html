@@ -1,0 +1,29 @@
+<div class="search-form">
+  <h2 class="form-title">Buscar Platillo por Primera Letra</h2>
+  <p class="form-description">Selecciona una letra para explorar platillos</p>
+  
+  <div class="letter-grid">
+    @for (letter of letters; track letter) {
+      <button
+        (click)="searchByLetter(letter)"
+        [disabled]="isLoading()"
+        [class.selected]="selectedLetter() === letter"
+        class="letter-button"
+      >
+        {{ letter }}
+      </button>
+    }
+  </div>
+
+  @if (isLoading()) {
+    <div class="loading-message">
+      Buscando platillos que inicien con "{{ selectedLetter() }}"...
+    </div>
+  }
+
+  @if (errorMessage()) {
+    <div class="error-message">
+      {{ errorMessage() }}
+    </div>
+  }
+</div>
