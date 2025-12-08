@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,11 +9,27 @@
     scroll-behavior: smooth;
 }
 
-.app-search-by-letter {
-  padding: 2rem 1rem;
-  background-color: var(--background-light);
-  min-height: calc(100vh - 6rem); /* Ajusta según la altura del header */
-  display: flex;
-  flex-direction: column;
+
+
+.back-button {
+  display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  max-width: fit-content;
+  height: 2.5rem;
+  padding: 0 1rem;
+  background-color: transparent;
+  color: #7e8490;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }

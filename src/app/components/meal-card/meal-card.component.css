@@ -16,7 +16,6 @@
   --border-radius-xl: 1.5rem;
 }
 
-/* Contenedor de la card */
 .meal-card {
   display: flex;
   flex-direction: column;
@@ -34,7 +33,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* Contenedor de imagen */
 .meal-card-image-container {
   width: 100%;
   overflow: hidden;
@@ -55,7 +53,6 @@
   transform: scale(1.05);
 }
 
-/* Contenido de la card */
 .meal-card-content {
   display: flex;
   flex-direction: column;
@@ -76,7 +73,6 @@
   -webkit-box-orient: vertical;
 }
 
-/* Info badges */
 .meal-card-info {
   display: flex;
   flex-wrap: wrap;
@@ -104,68 +100,10 @@
   color: var(--content-light);
 }
 
-/* Botón de la card - OCULTO */
 .meal-card-button {
   display: none;
 }
 
-/* Modo oscuro */
-@media (prefers-color-scheme: dark) {
-  .meal-card {
-    background-color: var(--card-bg-dark);
-  }
-
-  .meal-card:hover {
-    background-color: var(--card-hover-dark);
-  }
-
-  .meal-card-image-container {
-    background-color: #2a2a2a;
-  }
-
-  .meal-card-title {
-    color: var(--content-dark);
-  }
-
-  .meal-card-badge.category {
-    background-color: rgba(244, 140, 37, 0.2);
-    color: var(--primary);
-  }
-
-  .meal-card-badge.area {
-    background-color: var(--neutral-800);
-    color: var(--neutral-400);
-  }
-}
-
-/* Clase para forzar modo oscuro en Angular */
-:host-context(.dark) .meal-card {
-  background-color: var(--card-bg-dark);
-}
-
-:host-context(.dark) .meal-card:hover {
-  background-color: var(--card-hover-dark);
-}
-
-:host-context(.dark) .meal-card-image-container {
-  background-color: #2a2a2a;
-}
-
-:host-context(.dark) .meal-card-title {
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .meal-card-badge.category {
-  background-color: rgba(244, 140, 37, 0.2);
-  color: var(--primary);
-}
-
-:host-context(.dark) .meal-card-badge.area {
-  background-color: var(--neutral-800);
-  color: var(--neutral-400);
-}
-
-/* Responsive */
 @media (min-width: 640px) {
   .meal-card-image {
     height: 14rem;

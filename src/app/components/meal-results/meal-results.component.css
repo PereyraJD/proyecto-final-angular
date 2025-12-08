@@ -1,28 +1,12 @@
-/* Variables de diseño */
-:root {
-  --primary: #f48c25;
-  --primary-light: rgba(244, 140, 37, 0.2);
-  --background-light: #f8f7f5;
-  --background-dark: #221910;
-  --content-light: #181411;
-  --content-dark: #ffffff;
-  --neutral-200: rgba(0, 0, 0, 0.1);
-  --neutral-400: #9ca3af;
-  --neutral-500: #6b7280;
-  --neutral-800: rgba(255, 255, 255, 0.1);
-  --border-radius-full: 9999px;
-}
-
-/* Contenedor principal de resultados */
 .results-container {
+  padding-top: 130px;
   min-height: 100vh;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 1.25rem 1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Header de resultados */
 .results-header {
   display: flex;
   flex-direction: column;
@@ -31,41 +15,17 @@
   padding: 0 1rem;
 }
 
-/* Botón de volver */
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.5rem;
-  max-width: fit-content;
-  height: 2.5rem;
-  padding: 0 1rem;
-  background-color: transparent;
-  color: var(--content-light);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.015em;
-  border: none;
-  border-radius: var(--border-radius-full);
-  cursor: pointer;
-  transition: all 0.2s;
-}
 
-.back-button:hover {
-  background-color: var(--neutral-200);
-}
 
-/* Título de resultados */
 .results-title {
   font-size: 1.875rem;
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: -0.033em;
-  color: var(--content-light);
+  color: #181411;
   margin: 0;
 }
 
-/* Sin resultados */
 .no-results {
   display: flex;
   flex-direction: column;
@@ -85,17 +45,16 @@
 .no-results h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--content-light);
+  color: #181411;
   margin: 0;
 }
 
 .no-results p {
   font-size: 1rem;
-  color: var(--neutral-500);
+  color: #6b7280;
   margin: 0;
 }
 
-/* Grid de meals */
 .meals-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -103,10 +62,9 @@
   padding: 1rem;
 }
 
-/* Responsive breakpoints */
 @media (min-width: 640px) {
   .results-container {
-    padding: 1.25rem 2.5rem;
+    padding: 130px 2.5rem 1.25rem 2.5rem;
   }
 
   .results-title {
@@ -120,7 +78,7 @@
 
 @media (min-width: 1024px) {
   .results-container {
-    padding: 1.25rem 2rem;
+    padding: 130px 2rem 1.25rem 2rem;
   }
 
   .results-title {
@@ -133,59 +91,34 @@
 }
 
 @media (min-width: 1280px) {
+  .results-container {
+    padding: 130px 2rem 1.25rem 2rem;
+  }
+
   .meals-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Modo oscuro */
-@media (prefers-color-scheme: dark) {
-  .results-container {
-    color: var(--content-dark);
-  }
-
+/* @media (prefers-color-scheme: dark) {
   .back-button {
-    color: var(--content-dark);
+    color: #ffffff;
   }
 
   .back-button:hover {
-    background-color: var(--neutral-800);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .results-title {
-    color: var(--content-dark);
+    color: #ffffff;
   }
 
   .no-results h3 {
-    color: var(--content-dark);
+    color: #ffffff;
   }
 
   .no-results p {
-    color: var(--neutral-400);
+    color: #9ca3af;
   }
-}
+} */
 
-/* Clase para forzar modo oscuro en Angular */
-:host-context(.dark) .results-container {
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .back-button {
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .back-button:hover {
-  background-color: var(--neutral-800);
-}
-
-:host-context(.dark) .results-title {
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .no-results h3 {
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .no-results p {
-  color: var(--neutral-400);
-}

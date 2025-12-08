@@ -17,69 +17,56 @@
           class="detail-image"
         />
         
-        <div class="detail-header">
-          <h1 class="detail-title">{{ fullMeal()!.strMeal }}</h1>
-          
-          <div class="detail-badges">
-            @if (fullMeal()!.strCategory) {
-              <span class="detail-badge category">
-                🍽️ {{ fullMeal()!.strCategory }}
-              </span>
-            }
+        <div class="detail-right-column">
+          <div class="detail-header">
+            <h1 class="detail-title">{{ fullMeal()!.strMeal }}</h1>
             
-            @if (fullMeal()!.strArea) {
-              <span class="detail-badge area">
-                🌍 {{ fullMeal()!.strArea }}
-              </span>
-            }
-            
-            @if (fullMeal()!.strTags) {
-              @for (tag of fullMeal()!.strTags!.split(','); track tag) {
-                <span class="detail-badge tag">
-                  #{{ tag.trim() }}
+            <div class="detail-badges">
+              @if (fullMeal()!.strCategory) {
+                <span class="detail-badge category">
+                  {{ fullMeal()!.strCategory }}
                 </span>
               }
-            }
+              
+              @if (fullMeal()!.strArea) {
+                <span class="detail-badge area">
+                  {{ fullMeal()!.strArea }}
+                </span>
+              }
+              
+              @if (fullMeal()!.strTags) {
+                @for (tag of fullMeal()!.strTags!.split(','); track tag) {
+                  <span class="detail-badge tag">
+                    #{{ tag.trim() }}
+                  </span>
+                }
+              }
+            </div>
           </div>
+
+          <section class="detail-section ingredients-section">
+            <h2 class="section-title">Ingredientes</h2>
+            <div class="ingredients-list">
+              @for (ingredient of fullMeal()!.ingredients; track ingredient.name) {
+                <div class="ingredient-item">
+                  <span class="ingredient-name">{{ ingredient.name }}</span>
+                  @if (ingredient.measure) {
+                    <span class="ingredient-measure">{{ ingredient.measure }}</span>
+                  }
+                </div>
+              }
+            </div>
+          </section>
         </div>
       </div>
 
       <div class="detail-sections">
         <section class="detail-section">
-          <h2 class="section-title">📝 Ingredientes</h2>
-          <div class="ingredients-list">
-            @for (ingredient of fullMeal()!.ingredients; track ingredient.name) {
-              <div class="ingredient-item">
-                <span class="ingredient-name">{{ ingredient.name }}</span>
-                @if (ingredient.measure) {
-                  <span class="ingredient-measure">{{ ingredient.measure }}</span>
-                }
-              </div>
-            }
-          </div>
-        </section>
-
-        <section class="detail-section">
-          <h2 class="section-title">👨‍🍳 Instrucciones</h2>
+          <h2 class="section-title">Instrucciones</h2>
           <div class="instructions-content">
             {{ fullMeal()!.strInstructions }}
           </div>
         </section>
-
-        @if (fullMeal()!.strYoutube) {
-          <section class="detail-section">
-            <h2 class="section-title">🎥 Video Tutorial</h2>
-            <div class="video-container">
-              <iframe
-                [src]="getYoutubeEmbedUrl(fullMeal()!.strYoutube)"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                class="video-iframe"
-              ></iframe>
-            </div>
-          </section>
-        }
       </div>
     </div>
   } @else {

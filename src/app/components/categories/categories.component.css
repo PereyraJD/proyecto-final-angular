@@ -1,14 +1,25 @@
-.categories-container {
+.categories-header {
   padding: 20px;
 }
 
-.back-button {
+
+
+.categories-container {
+  padding-top: 130px;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* .back-button {
   all: unset;
   color: #7e8490;
   font-size: 15px;
   margin: 10px 0;
  
-}
+} */
 
 /* .back-row {
   
@@ -60,4 +71,11 @@
   color: white;
   margin-top: 30px;
   font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+.category-link:hover {
+  color:#F97316;
+  background: #d0d0d0;
+  border: #F97316 2px solid;
 }

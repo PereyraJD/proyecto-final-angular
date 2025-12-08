@@ -1,27 +1,13 @@
-:root {
-  --primary: #f48c25;
-  --primary-light: rgba(244, 140, 37, 0.2);
-  --background-light: #f8f7f5;
-  --background-dark: #221910;
-  --content-light: #181411;
-  --content-dark: #f8f7f5;
-  --subtle-light: #f5f2f0;
-  --subtle-dark: #2a221a;
-  --border-radius: 0.5rem;
-  --border-radius-lg: 1rem;
-  --border-radius-xl: 1.5rem;
-}
 
-/* Contenedor principal */
 .detail-container {
   min-height: 100vh;
   width: 100%;
-  background-color: var(--background-light);
-  color: var(--content-light);
+  background-color: #f8f7f5;
+  color: #181411;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding-top: 120px;
 }
 
-/* Estados de carga y error */
 .loading-container,
 .error-container {
   display: flex;
@@ -36,8 +22,8 @@
 .loading-spinner {
   width: 48px;
   height: 48px;
-  border: 4px solid var(--subtle-light);
-  border-top-color: var(--primary);
+  border: 4px solid #f5f2f0;
+  border-top-color: #f48c25;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -46,39 +32,17 @@
   to { transform: rotate(360deg); }
 }
 
-/* Contenido principal */
 .detail-content {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 1.25rem 1rem;
 }
 
-/* Botón de volver */
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-width: 84px;
-  max-width: 480px;
-  height: 2.5rem;
-  padding: 0 1rem;
-  background-color: transparent;
-  color: var(--content-light);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.015em;
-  border: none;
-  border-radius: var(--border-radius-xl);
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
 
 .back-button:hover {
-  background-color: var(--subtle-light);
+  background-color: #f5f2f0;
 }
 
-/* Hero section */
 .detail-hero {
   display: grid;
   grid-template-columns: 1fr;
@@ -89,10 +53,17 @@
 .detail-image {
   width: 100%;
   height: auto;
-  min-height: 320px;
+  min-height: 400px;
+  max-height: 600px;
   object-fit: cover;
-  border-radius: var(--border-radius-xl);
-  background-color: var(--subtle-light);
+  border-radius: 1.5rem;
+  background-color: #f5f2f0;
+}
+
+.detail-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .detail-header {
@@ -102,18 +73,18 @@
 }
 
 .detail-title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: -0.033em;
   margin: 0;
+  text-align: left;
 }
 
 .detail-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  overflow-x: auto;
 }
 
 .detail-badge {
@@ -128,36 +99,36 @@
   flex-shrink: 0;
 }
 
-/* Badge de categoría - fondo naranja */
 .detail-badge.category {
-  background-color: var(--primary-light);
-  color: var(--primary);
+  background-color: rgba(244, 140, 37, 0.2);
+  color: #f48c25;
 }
 
-/* Badge de área/país - fondo gris */
 .detail-badge.area {
-  background-color: var(--subtle-light);
-  color: var(--content-light);
+  background-color: #f5f2f0;
+  color: #181411;
 }
 
-/* Badge de tags - fondo gris */
 .detail-badge.tag {
-  background-color: var(--subtle-light);
-  color: var(--content-light);
+  background-color: #f5f2f0;
+  color: #181411;
 }
 
-/* Secciones de detalle */
 .detail-sections {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 .detail-section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.ingredients-section {
+  margin-top: 0;
 }
 
 .section-title {
@@ -165,50 +136,53 @@
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
-  color: var(--content-light);
+  color: #181411;
+  text-align: left;
 }
 
-/* Lista de ingredientes */
 .ingredients-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .ingredient-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--subtle-light);
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0;
+  border: none;
 }
 
 .ingredient-name {
-  font-weight: 500;
-  color: var(--content-light);
+  font-weight: 400;
+  color: #181411;
+  font-size: 1rem;
 }
 
 .ingredient-measure {
-  color: rgba(24, 20, 17, 0.7);
-  font-size: 0.875rem;
+  color: #181411;
+  font-size: 1rem;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
-/* Instrucciones */
 .instructions-content {
-  color: var(--content-light);
+  color: #181411;
   font-size: 1rem;
   line-height: 1.6;
   white-space: pre-line;
+  padding-bottom: 50px;
 }
 
-/* Video */
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  border-radius: var(--border-radius-xl);
+  padding-bottom: 56.25%; 
+  border-radius: 1.5rem;
   overflow: hidden;
-  background-color: var(--subtle-light);
+  background-color: #f5f2f0;
 }
 
 .video-iframe {
@@ -220,153 +194,112 @@
   border: none;
 }
 
-/* Responsive design */
-@media (min-width: 640px) {
-  .detail-content {
-    padding: 1.25rem 2rem;
+@media (max-width: 767px) {
+  .detail-title {
+    font-size: 2rem;
   }
 
   .detail-image {
-    min-height: 480px;
+    min-height: 300px;
   }
 
   .ingredients-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem 1rem;
+    grid-template-columns: 1fr;
   }
 }
 
 @media (min-width: 768px) {
   .detail-content {
-    padding: 1.25rem 3rem;
+    padding: 1.25rem 2rem;
+  }
+
+  .ingredients-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .detail-content {
-    padding: 1.25rem 5rem;
+    padding: 1.25rem 3rem;
   }
 
   .detail-hero {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    align-items: start;
   }
 
   .detail-image {
-    min-height: 100%;
+    position: sticky;
+    top: 140px;
+    min-height: 400px;
+    max-height: 500px;
   }
 
   .detail-title {
     font-size: 3rem;
   }
+
+  .ingredients-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 2.5rem;
+  }
 }
 
 @media (min-width: 1280px) {
   .detail-content {
-    padding: 1.25rem 10rem;
+    padding: 1.25rem 4rem;
+  }
+
+  .detail-title {
+    font-size: 3.5rem;
   }
 }
 
-/* Modo oscuro */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .detail-container {
-    background-color: var(--background-dark);
-    color: var(--content-dark);
+    background-color: #221910;
+    color: #f8f7f5;
+  }
+
+  .loading-spinner {
+    border-color: #2a221a;
+    border-top-color: #f48c25;
   }
 
   .back-button {
-    color: var(--content-dark);
+    color: #f8f7f5;
   }
 
   .back-button:hover {
-    background-color: var(--subtle-dark);
+    background-color: #2a221a;
   }
 
   .detail-image {
-    background-color: var(--subtle-dark);
+    background-color: #2a221a;
   }
 
-  .detail-badge.category {
-    background-color: rgba(244, 140, 37, 0.2);
-    color: var(--primary);
-  }
-
-  .detail-badge.area {
-    background-color: var(--subtle-dark);
-    color: var(--content-dark);
-  }
-
+  .detail-badge.area,
   .detail-badge.tag {
-    background-color: var(--subtle-dark);
-    color: var(--content-dark);
+    background-color: #2a221a;
+    color: #f8f7f5;
   }
 
-  .section-title,
+  .section-title {
+    color: #f8f7f5;
+  }
+
   .ingredient-name,
-  .instructions-content {
-    color: var(--content-dark);
-  }
-
-  .ingredient-item {
-    border-bottom-color: var(--subtle-dark);
-  }
-
   .ingredient-measure {
-    color: rgba(248, 247, 245, 0.7);
+    color: #f8f7f5;
+  }
+
+  .instructions-content {
+    color: #f8f7f5;
   }
 
   .video-container {
-    background-color: var(--subtle-dark);
+    background-color: #2a221a;
   }
-}
-
-/* Clase para forzar modo oscuro en Angular */
-:host-context(.dark) .detail-container {
-  background-color: var(--background-dark);
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .back-button {
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .back-button:hover {
-  background-color: var(--subtle-dark);
-}
-
-:host-context(.dark) .detail-image {
-  background-color: var(--subtle-dark);
-}
-
-:host-context(.dark) .detail-badge.category {
-  background-color: rgba(244, 140, 37, 0.2);
-  color: var(--primary);
-}
-
-:host-context(.dark) .detail-badge.area {
-  background-color: var(--subtle-dark);
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .detail-badge.tag {
-  background-color: var(--subtle-dark);
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .section-title,
-:host-context(.dark) .ingredient-name,
-:host-context(.dark) .instructions-content {
-  color: var(--content-dark);
-}
-
-:host-context(.dark) .ingredient-item {
-  border-bottom-color: var(--subtle-dark);
-}
-
-:host-context(.dark) .ingredient-measure {
-  color: rgba(248, 247, 245, 0.7);
-}
-
-:host-context(.dark) .video-container {
-  background-color: var(--subtle-dark);
-}
+} */
