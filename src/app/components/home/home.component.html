@@ -2,9 +2,8 @@
   <div class="hero-section">
     <h1 class="hero-title">Bienvenido a Digital Menu</h1>
     <p class="hero-subtitle">Descubre deliciosas recetas de todo el mundo</p>
-  </div>
 
-  @if (!activeSearch) {
+      @if (!activeSearch) {
     <div class="search-options">
       <div class="search-card" (click)="showSearch('name')">
         <div class="card-icon">🔍</div>
@@ -25,6 +24,9 @@
       </div>
     </div>
   }
+  
+  </div>
+
 
   @if (activeSearch === 'name') {
     <div class="search-form-container">
