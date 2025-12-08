@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
     CommonModule, 
     SearchByNameComponent, 
     SearchByLetterComponent, 
-    RandomMealComponent
+    RandomMealComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -29,7 +29,8 @@ export class HomeComponent {
   
   handleSearchResults(meals: Meal[], type: string) {
     this.router.navigate(['/results', type], { 
-      state: { meals } });
+      state: { meals }
+   });
   }
 
   closeSearch() {
