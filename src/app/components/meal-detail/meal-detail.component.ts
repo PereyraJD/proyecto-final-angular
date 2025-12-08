@@ -1,7 +1,8 @@
-import { Component, input, output, signal, effect } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Meal } from '../../interfaces/meal.interface';
 import { MealDbService } from '../../services/meal-db.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-meal-detail',
@@ -11,25 +12,28 @@ import { MealDbService } from '../../services/meal-db.service';
   styleUrls: ['./meal-detail.component.css']
 })
 export class MealDetailComponent {
-  meal = input<Meal | null>(null);
-  onBack = output<void>();
-  
+  meal = signal<Meal | null>(null);
   fullMeal = signal<Meal | null>(null);
   isLoading = signal<boolean>(false);
 
-  constructor(private mealDbService: MealDbService) {
-    effect(() => {
-      const currentMeal = this.meal();
-      if (currentMeal) {
-        // Si el meal tiene instrucciones, es completo
-        if (currentMeal.strInstructions && currentMeal.ingredients.length > 0) {
-          this.fullMeal.set(currentMeal);
-        } else {
-          // Si no tiene instrucciones, cargar detalles completos
-          this.loadFullMealDetails(currentMeal.idMeal);
-        }
+  constructor(
+    private mealDbService: MealDbService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) {
+    const nav = history.state;
+    const navMeal = nav['meal'] ?? null;
+    if (navMeal) {
+      this.meal.set(navMeal);
+      if (!navMeal.strInstructions || (navMeal.ingredients ?? []).length === 0) {
+        this.loadFullMealDetails(navMeal.idMeal);
+      } else {
+        this.fullMeal.set(navMeal);
       }
-    });
+    } else {
+      const id = this.route.snapshot.params['id'];
+      if (id) this.loadFullMealDetails(id);
+    }
   }
 
   loadFullMealDetails(mealId: string) {
@@ -47,7 +51,7 @@ export class MealDetailComponent {
   }
 
   handleBack() {
-    this.onBack.emit();
+    this.router.navigate(['/']);
   }
 
   getYoutubeEmbedUrl(url: string): string {

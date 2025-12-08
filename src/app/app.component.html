@@ -14,34 +14,7 @@
   </header>
 
   <main class="app-main">
-    @if (currentPage() === 'home') {
-      <app-home
-        (onSearch)="navigateToResults($event)"
-      ></app-home>
-    }
-
-    @if (currentPage() === 'results') {
-      <app-meal-results
-        [meals]="searchResults()"
-        [searchType]="searchType()"
-        (onMealSelected)="navigateToDetail($event)"
-        (onBack)="goBack()"
-      ></app-meal-results>
-    }
-
-    @if (currentPage() === 'detail') {
-      <app-meal-detail
-        [meal]="selectedMeal()"
-        (onBack)="goBack()"
-      ></app-meal-detail>
-    }
-
-    @if (currentPage() === 'categories') {
-      <app-categories
-        (onCategorySelected)="navigateToCategoryResults($event)"
-        (onBack)="goBack()"
-      ></app-categories>
-    }
+    <router-outlet></router-outlet>
   </main>
 
   <footer class="app-footer">

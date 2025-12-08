@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, output } from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchByNameComponent } from '../search-by-name/search-by-name.component';
 import { SearchByLetterComponent } from '../search-by-letter/search-by-letter.component';
 import { RandomMealComponent } from '../random-meal/random-meal.component';
 import { Meal } from '../../interfaces/meal.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ import { Meal } from '../../interfaces/meal.interface';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  onSearch = output<{ meals: Meal[], type: string}>()
+  constructor(private router: Router) {}
 
   activeSearch: 'name' | 'letter' | 'random' | null = null;
 
@@ -27,7 +28,8 @@ export class HomeComponent {
     }
   
   handleSearchResults(meals: Meal[], type: string) {
-    this.onSearch.emit({ meals, type });
+    this.router.navigate(['/results', type], { 
+      state: { meals } });
   }
 
   closeSearch() {

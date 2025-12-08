@@ -1,7 +1,10 @@
-import { Component, input, output } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MealCardComponent } from '../meal-card/meal-card.component';
 import { Meal } from '../../interfaces/meal.interface';
+import { Router, ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-meal-results',
@@ -10,18 +13,30 @@ import { Meal } from '../../interfaces/meal.interface';
   templateUrl: './meal-results.component.html',
   styleUrls: ['./meal-results.component.css']
 })
+
 export class MealResultsComponent {
-  meals = input.required<Meal[]>();
-  searchType = input<string>('');
-  onMealSelected = output<Meal>();
-  onBack = output<void>();
+  
+
+  meals = signal<Meal[]>([]);
+  searchType = signal<string>('');
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+
+    const nav = history.state
+
+    this.meals.set(nav['meals'] ?? []);
+    this.searchType.set(this.route.snapshot.paramMap.get('type') ?? '');
+    
+  }
 
   handleMealClick(meal: Meal) {
-    this.onMealSelected.emit(meal);
+    this.router.navigate(['/meal', meal.idMeal],
+       { state: { meal }
+    });
   }
 
   handleBack() {
-    this.onBack.emit();
+    this.router.navigate(['/']);
   }
 
   getResultsTitle(): string {

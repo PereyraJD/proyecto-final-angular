@@ -1,7 +1,8 @@
-import { Component, output, signal, OnInit } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MealDbService } from '../../services/meal-db.service';
 import { Category, Meal } from '../../interfaces/meal.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -10,16 +11,14 @@ import { Category, Meal } from '../../interfaces/meal.interface';
   templateUrl: './categories.component.html'
 })
 export class CategoriesComponent implements OnInit {
-  onCategorySelected = output<Meal[]>();
-  onBack = output<void>();
-  
+
   categories = signal<Category[]>([]);
   isLoading = signal<boolean>(false);
   isLoadingMeals = signal<boolean>(false);
   errorMessage = signal<string>('');
   selectedCategory = signal<string>('');
 
-  constructor(private mealDbService: MealDbService) {}
+  constructor(private mealDbService: MealDbService, private router: Router) {}
 
   ngOnInit() {
     this.loadCategories();
@@ -28,7 +27,6 @@ export class CategoriesComponent implements OnInit {
   loadCategories() {
     this.isLoading.set(true);
     this.errorMessage.set('');
-
     this.mealDbService.getCategories().subscribe({
       next: (categories) => {
         this.isLoading.set(false);
@@ -49,7 +47,7 @@ export class CategoriesComponent implements OnInit {
     this.mealDbService.filtersByCategory(categoryName).subscribe({
       next: (meals) => {
         this.isLoadingMeals.set(false);
-        this.onCategorySelected.emit(meals);
+        this.router.navigate(['/results', 'category'], { state: { meals } });
       },
       error: (error) => {
         this.isLoadingMeals.set(false);
@@ -60,6 +58,6 @@ export class CategoriesComponent implements OnInit {
   }
 
   handleBack() {
-    this.onBack.emit();
+    this.router.navigate(['/'])
   }
 }
