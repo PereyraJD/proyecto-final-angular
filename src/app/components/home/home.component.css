@@ -1,19 +1,11 @@
-:root {
-  --primary: #d96f00;
-  --bg-light: #f8f7f5;
-  --bg-dark: #221910;
-  --text-light: #1a1a1a;
-  --text-dark: #f1f1f1;
-}
-
 
 .home-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-light);
+  background-color: #f8f7f5;
   font-family: "IBM Plex Sans Condensed", system-ui, sans-serif;
-  color: var(--text-light);
+  color: #1a1a1a;
 }
 
 .hero-section {
@@ -71,6 +63,9 @@
   margin-right: auto;
 }
 
+
+
+
 @media (min-width: 640px) {
   .search-options {
     grid-template-columns: repeat(2, 1fr);
@@ -126,7 +121,7 @@
 
 .close-button {
   background: transparent;
-  border: none;
+  border-color: red;;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -137,5 +132,6 @@
 }
 
 .close-button:hover {
-  background-color: rgba(0,0,0,0.05);
+  color: white;
+  background-color: rgba(255, 3, 3, 0.507);
 }
