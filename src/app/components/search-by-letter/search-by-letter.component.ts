@@ -7,7 +7,8 @@ import { Meal } from '../../interfaces/meal.interface';
   selector: 'app-search-by-letter',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './search-by-letter.component.html'
+  templateUrl: './search-by-letter.component.html',
+  styleUrls: ['./search-by-letter.component.css']
 })
 export class SearchByLetterComponent {
   onResults = output<Meal[]>();

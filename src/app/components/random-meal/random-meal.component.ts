@@ -7,7 +7,8 @@ import { Meal } from '../../interfaces/meal.interface';
   selector: 'app-random-meal',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './random-meal.component.html'
+  templateUrl: './random-meal.component.html',
+  styleUrls: ['./random-meal.component.css']
 })
 export class RandomMealComponent {
   onResults = output<Meal[]>();

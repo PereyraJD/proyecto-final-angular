@@ -8,7 +8,8 @@ import { Meal } from '../../interfaces/meal.interface';
   selector: 'app-search-by-name',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './search-by-name.component.html'
+  templateUrl: './search-by-name.component.html',
+  styleUrls: ['./search-by-name.component.css']
 })
 export class SearchByNameComponent {
   onResults = output<Meal[]>();
