@@ -6,9 +6,7 @@
   --text-dark: #f1f1f1;
 }
 
-/* ================================
-   Layout general
-================================ */
+
 .home-container {
   min-height: 100vh;
   display: flex;
@@ -18,11 +16,9 @@
   color: var(--text-light);
 }
 
-/* ================================
-   Hero Section
-================================ */
 .hero-section {
   min-height: 100vh;
+
   background-image:
     linear-gradient(rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.85)),
     url("https://lh3.googleusercontent.com/aida-public/AB6AXuCecbGxVkBveqW1AzcQhQgozNfFr2uCg64YAdhOUHln8ZYK8Z9qUmCkV4w8x8IQfmYxL7W5xJF_SG1_THeaAKw19Hco0ac_1MEkB0now9XAZoxxK3VZ5sfHXCzjPkGkJeVlYTGOV8yCRVslyaDk4qhuEyVefQv3Cae_VlR1-l4skEX5RDjTflvCcD-t0UIAuPGTLkA-LV_lNrT-Yoo7UROatdb9TKWYS5cqnmR4WySfJkfPuvoP4BqBMvhwol4EMmAisMJxKhPsamfN");
@@ -38,9 +34,7 @@
   padding: 20px;
 }
 
-/* ================================
-   Hero Text
-================================ */
+
 .hero-title {
   color: white;
   font-size: 42px;
@@ -54,7 +48,7 @@
   color: rgba(255,255,255,0.8);
 }
 
-/* Responsive Hero Text */
+
 @media (min-width: 768px) {
   .hero-title {
     font-size: 60px;
@@ -65,9 +59,6 @@
   }
 }
 
-/* ================================
-   Search Options (cards)
-================================ */
 .search-options {
   margin-top: 50px;
   width: 100%;
@@ -105,9 +96,7 @@
   grid-column: 1 / -1;
 }
 
-/* ================================
-   Card Content
-================================ */
+
 .card-icon {
   font-size: 32px;
   margin-bottom: 12px;
@@ -124,9 +113,6 @@
   opacity: 0.7;
 }
 
-/* ================================
-   Search Forms Container
-================================ */
 .search-form-container {
   background-color: white;
   margin: -120px auto 40px auto;
@@ -137,9 +123,7 @@
   box-shadow: 0 20px 50px rgba(0,0,0,0.1);
 }
 
-/* ================================
-   Close Button
-================================ */
+
 .close-button {
   background: transparent;
   border: none;

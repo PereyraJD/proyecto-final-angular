@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-categories',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './categories.component.html'
+  templateUrl: './categories.component.html',
 })
 export class CategoriesComponent implements OnInit {
 
