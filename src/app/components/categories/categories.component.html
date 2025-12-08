@@ -1,7 +1,7 @@
 <div class="categories-container">
   <div class="categories-header">
     <button (click)="handleBack()" class="back-button">
-      ← Volver al Inicio
+      <span class="back-row">←</span>Volver al Inicio
     </button>
     <h2 class="categories-title">Explorar por Categorías</h2>
   </div>
@@ -43,7 +43,7 @@
             @if (isLoadingMeals() && selectedCategory() === category.strCategory) {
               <span class="category-loading">Cargando...</span>
             } @else {
-              <span class="category-link">Ver platillos →</span>
+              <button class="category-link">Ver platillos →</button>
             }
           </div>
         </div>

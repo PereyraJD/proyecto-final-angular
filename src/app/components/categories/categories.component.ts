@@ -4,11 +4,13 @@ import { MealDbService } from '../../services/meal-db.service';
 import { Category, Meal } from '../../interfaces/meal.interface';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-categories',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './categories.component.html'
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
 
