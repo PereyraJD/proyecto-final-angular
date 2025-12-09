@@ -1,8 +1,12 @@
 <div class="home-container">
   <div class="hero-section">
-    <h1 class="hero-title">Bienvenido a MealApp</h1>
-    <p class="hero-subtitle">Descubre deliciosas recetas de todo el mundo</p>
-
+    @if (!activeSearch) {
+    <div class="hero-content">
+      <h1 class="hero-title">Bienvenido a MealApp</h1>
+      <p class="hero-subtitle">Descubre deliciosas recetas de todo el mundo</p>
+    </div>
+  }
+  
       @if (!activeSearch) {
     <div class="search-options">
       <div class="search-card search-by-name" (click)="showSearch('name')">
@@ -16,7 +20,7 @@
         <h3 class="card-title">Buscar por Letra</h3>
         <p class="card-description">Explora platillos alfabéticamente</p>
       </div>
-      <div class="search-card " (click)="showSearch('random')">
+      <div class="search-card" id="orange"  (click)="showSearch('random')">
           <div class="card-icon">🎲</div>
           <h3 class="card-title">Platillo Aleatorio</h3>
           <p class="card-description">Sorpréndete con algo nuevo</p>

@@ -1,6 +1,4 @@
 
-
-
 .search-form {
   width: 100%;
   max-width: 35rem; 
@@ -115,7 +113,7 @@
 
   .letter-button {
     padding: 0.625rem;
-    font-size: 0.8125rem;
+    font-size: 1rem;
   }
 }
 

@@ -152,4 +152,7 @@
   .submit-button {
     height: 2.75rem;
   }
+  .form-input::placeholder {
+  font-size: 0.75rem;
+}
 }
