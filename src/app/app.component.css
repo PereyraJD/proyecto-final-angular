@@ -1,19 +1,10 @@
-:root {
-  --primary: #d96f00;
-  --bg-light: #f8f7f577;
-  --bg-dark: #221910;
-  --text-main: #181411;
-  --text-light: #ffffff;
-  --subtle-light: #f5f2f0;
-}
-
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-light);
-  font-family: "IBM Plex Sans Condensed", system-ui, sans-serif;
-  color: var(--text-main);
+  background-color: #f8f7f577;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #181411;
 }
 
 
@@ -85,7 +76,7 @@
 
 
 .app-footer {
-  background-color:#f8f7f577;
+  background-color: #f8f7f577;
   justify-content: space-between;
   text-align: center;
   padding: 40px 16px;
@@ -93,4 +84,3 @@
   color: #666;
   border-top: 1px solid #eee;
 }
-
