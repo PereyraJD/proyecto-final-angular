@@ -84,3 +84,9 @@
   color: #666;
   border-top: 1px solid #eee;
 }
+
+.app-footer a {
+  color: #f97316;
+  text-decoration: none;
+  font-weight: 600;
+}
